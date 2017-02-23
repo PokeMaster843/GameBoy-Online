@@ -272,6 +272,26 @@ GameBoyCore.prototype.GBBOOTROM = [		//GB BOOT ROM
 ];
 GameBoyCore.prototype.GBCBOOTROM = [	//GBC BOOT ROM
 	//Add 2048 byte boot rom here if you are going to use it.
+0x00, 0xe0, 0x40, 0x28, 0x28, 0x28, 0x18, 0xe0, 0x60, 0x20, 0x18, 0xe0, 0x00, 0x00, 0x08, 0xe0, 
+18, 30, d0, d0, d0, 20, e0, e8, ff, 7f, bf, 32, d0, 00, 00, 00, 
+9f, 63, 79, 42, b0, 15, cb, 04, ff, 7f, 31, 6e, 4a, 45, 00, 00, 
+ff, 7f, ef, 1b, 00, 02, 00, 00, ff, 7f, 1f, 42, f2, 1c, 00, 00, 
+ff, 7f, 94, 52, 4a, 29, 00, 00, ff, 7f, ff, 03, 2f, 01, 00, 00, 
+ff, 7f, ef, 03, d6, 01, 00, 00, ff, 7f, b5, 42, c8, 3d, 00, 00, 
+74, 7e, ff, 03, 80, 01, 00, 00, ff, 67, ac, 77, 13, 1a, 6b, 2d, 
+d6, 7e, ff, 4b, 75, 21, 00, 00, ff, 53, 5f, 4a, 52, 7e, 00, 00, 
+ff, 4f, d2, 7e, 4c, 3a, e0, 1c, ed, 03, ff, 7f, 5f, 25, 00, 00, 
+6a, 03, 1f, 02, ff, 03, ff, 7f, ff, 7f, df, 01, 12, 01, 00, 00, 
+1f, 23, 5f, 03, f2, 00, 09, 00, ff, 7f, ea, 03, 1f, 01, 00, 00, 
+9f, 29, 1a, 00, 0c, 00, 00, 00, ff, 7f, 7f, 02, 1f, 00, 00, 00, 
+ff, 7f, e0, 03, 06, 02, 20, 01, ff, 7f, eb, 7e, 1f, 00, 00, 7c, 
+ff, 7f, ff, 3f, 00, 7e, 1f, 00, ff, 7f, ff, 03, 1f, 00, 00, 00, 
+ff, 03, 1f, 00, 0c, 00, 00, 00, ff, 7f, 3f, 03, 93, 01, 00, 00, 
+00, 00, 00, 42, 7f, 03, ff, 7f, ff, 7f, 8c, 7e, 00, 7c, 00, 00, 
+ff, 7f, ef, 1b, 80, 61, 00, 00, ff, 7f, 00, 7c, e0, 03, 1f, 7c, 
+1f, 00, ff, 03, 40, 41, 42, 20, 21, 22, 80, 81, 82, 10, 11, 12, 
+12, b0, 79, b8, ad, 16, 17, 07, ba, 05, 7c, 13, 00, 00, 00, 00 
+
 ];
 GameBoyCore.prototype.ffxxDump = [	//Dump of the post-BOOT I/O register state (From gambatte):
 	0x0F, 0x00, 0x7C, 0xFF, 0x00, 0x00, 0x00, 0xF8, 	0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x01,
