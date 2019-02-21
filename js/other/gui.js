@@ -79,6 +79,11 @@ function registerGUIEvents() {
 			keyUp(event);
 		}
 	});
+	addEvent("keypress", document, function(event) {
+		if(event.keyCode == 82) {
+			restartByKeyPress();
+		}
+	});
 	addEvent("MozOrientation", window, GameBoyGyroSignalHandler);
 	addEvent("deviceorientation", window, GameBoyGyroSignalHandler);
 	new popupMenu(document.getElementById("GameBoy_file_menu"), document.getElementById("GameBoy_file_popup"));
@@ -648,5 +653,25 @@ function removeEvent(sEvent, oElement, fListener) {
 	catch (error) {
 		oElement.detachEvent("on" + sEvent, fListener);	//Pity for IE.
 		cout("In removeEvent() : Nonstandard detachEvent() called to remove an \"on" + sEvent + "\" event.", -1);
+	}
+}
+function restartByKeyPress() {
+	if (GameBoyEmulatorInitialized()) {
+		try {
+			if (!gameboy.fromSaveState) {
+				initPlayer();
+				start(mainCanvas, gameboy.getROMImage());
+			}
+			else {
+				initPlayer();
+				openState(gameboy.savedStateFileName, mainCanvas);
+			}
+		}
+		catch (error) {
+			alert(error.message + " file: " + error.fileName + " line: " + error.lineNumber);
+		}
+	}
+	else {
+		cout("Could not restart, as a previous emulation session could not be found.", 1);
 	}
 }
