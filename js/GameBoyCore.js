@@ -4766,7 +4766,7 @@ GameBoyCore.prototype.initBootstrap = function () {
 GameBoyCore.prototype.ROMLoad = function () {
 	//Load the first two ROM banks (0x0000 - 0x7FFF) into regular gameboy memory:
 	this.ROM = [];
-	this.usedBootROM = settings[1] && ((!settings[11] && this.GBCBOOTROM.length >= 0x800) || (settings[11] && this.GBBOOTROM.length == 0x100));
+	this.usedBootROM = settings[1] && ((!settings[11] && this.GBCBOOTROM.length == 0x900) || (settings[11] && this.GBBOOTROM.length == 0x100));
 	var maxLength = this.ROMImage.length;
 	if (maxLength < 0x4000) {
 		throw(new Error("ROM image size too small."));
@@ -4776,15 +4776,15 @@ GameBoyCore.prototype.ROMLoad = function () {
 	if (this.usedBootROM) {
 		if (!settings[11]) {
 			//Patch in the GBC boot ROM into the memory map:
-			for (; romIndex < 0x100; ++romIndex) {
+			/*for (; romIndex < 0x100; ++romIndex) {
 				this.memory[romIndex] = this.GBCBOOTROM[romIndex];											//Load in the GameBoy Color BOOT ROM.
 				this.ROM[romIndex] = (this.ROMImage.charCodeAt(romIndex) & 0xFF);							//Decode the ROM binary for the switch out.
 			}
 			for (; romIndex < 0x200; ++romIndex) {
 				this.memory[romIndex] = this.ROM[romIndex] = (this.ROMImage.charCodeAt(romIndex) & 0xFF);	//Load in the game ROM.
-			}
+			}*/
 			for (; romIndex < 0x900; ++romIndex) {
-				this.memory[romIndex] = this.GBCBOOTROM[romIndex - 0x100];									//Load in the GameBoy Color BOOT ROM.
+				this.memory[romIndex] = this.GBCBOOTROM[romIndex - 0x000];									//Load in the GameBoy Color BOOT ROM.
 				this.ROM[romIndex] = (this.ROMImage.charCodeAt(romIndex) & 0xFF);							//Decode the ROM binary for the switch out.
 			}
 			this.usedGBCBootROM = true;
