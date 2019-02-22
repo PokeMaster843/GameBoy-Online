@@ -74,6 +74,10 @@ function registerGUIEvents() {
 			restartByKeyPress();
 		}
 		
+		if(event.keyCode == 182) {
+			newRAMWatch();
+		}
+		
 		else {
 			keyDown(event);
 		}
@@ -678,5 +682,14 @@ function restartByKeyPress() {
 	}
 	else {
 		cout("Could not restart, as a previous emulation session could not be found.", 1);
+	}
+}
+function newRAMWatch() {
+	if(GameBoyEmulatorInitialized()) {
+		
+		var addr = parseInt(prompt("Enter address (hex): "), 16);
+		var val = addr >= 0xFF00 ? gameboy.memoryReader(addr) : gameboy.memoryHighReader(addr);
+		alert(val);
+		
 	}
 }
