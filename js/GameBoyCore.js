@@ -5874,11 +5874,19 @@ GameBoyCore.prototype.channel4UpdateCache = function () {
 GameBoyCore.prototype.run = function () {
 	//The preprocessing before the actual iteration loop:
 	var addr = parseInt(document.getElementById("addr").innerHTML, 16);
-	if(addr > 0) {
+	if(addr >= 0) {
+		document.getElementById("v00").innerHTML = this.memoryRead(addr + 0x00);
+		document.getElementById("v01").innerHTML = this.memoryRead(addr + 0x01);
+		document.getElementById("v02").innerHTML = this.memoryRead(addr + 0x02);
+		document.getElementById("v03").innerHTML = this.memoryRead(addr + 0x03);
+		document.getElementById("v04").innerHTML = this.memoryRead(addr + 0x04);
+		document.getElementById("v05").innerHTML = this.memoryRead(addr + 0x05);
+		document.getElementById("v06").innerHTML = this.memoryRead(addr + 0x06);
+		document.getElementById("v07").innerHTML = this.memoryRead(addr + 0x07);
 		for(var i = 0; i < 64; i++) {
 
-			var nAddr = addr + i;
-			document.getElementById("v" + (addr + i).toString(16)).innerHTML = nAddr <= 0xFF00 ? this.memoryRead(addr).toString(16) : this.memoryHighRead(addr).toString(16);
+			var nAddr = addr + i * 8;
+			document.getElementById("v" + (addr + i * 8).toString(16)).innerHTML = nAddr <= 0xFF00 ? this.memoryRead(addr).toString(16) : this.memoryHighRead(addr).toString(16);
 
 		}
 	}
