@@ -5873,8 +5873,9 @@ GameBoyCore.prototype.channel4UpdateCache = function () {
 }
 GameBoyCore.prototype.run = function () {
 	//The preprocessing before the actual iteration loop:
-	var addr = parseInt(document.getElementById("addr").innerHTML, 16); alert(addr);
+	var addr = parseInt(document.getElementById("addr").innerHTML, 16);
 	if(addr >= 0) {
+		alert(addr);
 		document.getElementById("v00").innerHTML = this.memoryRead(addr + 0x00); alert("Value:" + this.memoryRead(addr));
 		document.getElementById("v01").innerHTML = this.memoryRead(addr + 0x01);
 		document.getElementById("v02").innerHTML = this.memoryRead(addr + 0x02);
