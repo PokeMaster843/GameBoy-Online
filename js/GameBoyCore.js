@@ -5878,7 +5878,7 @@ GameBoyCore.prototype.run = function () {
 		for(var i = 0; i < 64; i++) {
 
 			var nAddr = addr + i;
-			document.getElementById("v" + nAddr.toString(16)).innerHTML = nAddr <= 0xFF00 ? gameboy.memoryRead(addr).toString(16) : gameboy.memoryHighRead(addr).toString(16);
+			document.getElementById("v" + (addr + i).toString(16)).innerHTML = nAddr <= 0xFF00 ? this.memoryRead(addr).toString(16) : this.memoryHighRead(addr).toString(16);
 
 		}
 	}
