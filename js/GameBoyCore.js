@@ -5883,10 +5883,10 @@ GameBoyCore.prototype.run = function () {
 		document.getElementById("v05").innerHTML = this.memoryRead(addr + 0x05);
 		document.getElementById("v06").innerHTML = this.memoryRead(addr + 0x06);
 		document.getElementById("v07").innerHTML = this.memoryRead(addr + 0x07);
-		for(var i = 0; i < 64; i++) {
+		for(var i = 8; i < 64; i++) {
 
-			var nAddr = addr + i * 8;
-			document.getElementById("v" + (addr + i * 8).toString(16)).innerHTML = nAddr <= 0xFF00 ? this.memoryRead(addr).toString(16) : this.memoryHighRead(addr).toString(16);
+			var nAddr = addr + i;
+			document.getElementById("v" + (addr + i).toString(16)).innerHTML = nAddr <= 0xFF00 ? this.memoryRead(addr).toString(16) : this.memoryHighRead(addr).toString(16);
 
 		}
 	}
