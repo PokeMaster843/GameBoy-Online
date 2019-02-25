@@ -74,7 +74,7 @@ function registerGUIEvents() {
 			restartByKeyPress();
 		}
 		
-		if(event.keyCode == 182) {
+		if(event.keyCode == 187) {
 			newRAMWatch();
 		}
 		
