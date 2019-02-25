@@ -448,6 +448,7 @@ ul.menu > li:hover > ul.menu {
 	display: block;
 	display: inline-block;
 }
+#addr { visibility: hidden; }
 #adr0 { display: inline-block; }
 #v00 { display: inline-block; }
 #v01 { display: inline-block; }
