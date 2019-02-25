@@ -688,7 +688,7 @@ function newRAMWatch() {
 	if(GameBoyEmulatorInitialized()) {
 		
 		var addr = parseInt(prompt("Enter address (hex): "), 16);
-		alert(gameboy.memoryRead(addr).toString(16));
+		setInterval(function() { alert(gameboy.memoryRead(addr).toString(16)); }, 2000, false);
 		document.getElementById("addr").innerHTML = addr;
 		document.getElementById("adr0").innerHTML = (addr + 0x00).toString(16);
 		document.getElementById("adr1").innerHTML = (addr + 0x08).toString(16);
