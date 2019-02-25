@@ -688,6 +688,7 @@ function newRAMWatch() {
 	if(GameBoyEmulatorInitialized()) {
 		
 		var addr = parseInt(prompt("Enter address (hex): "), 16);
+		document.getElementById("addr").innerHTML = addr;
 		document.getElementById("adr0").innerHTML = (addr + 0x00).toString(16);
 		document.getElementById("adr1").innerHTML = (addr + 0x08).toString(16);
 		document.getElementById("adr2").innerHTML = (addr + 0x10).toString(16);
