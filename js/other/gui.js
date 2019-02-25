@@ -688,7 +688,7 @@ function newRAMWatch() {
 	if(GameBoyEmulatorInitialized()) {
 		
 		var addr = parseInt(prompt("Enter address (hex): "), 16);
-		var val = addr >= 0xFF00 ? gameboy.memoryRead(addr) : gameboy.memoryHighRead(addr);
+		var val = addr <= 0xFF00 ? gameboy.memoryRead(addr) : gameboy.memoryHighRead(addr);
 		alert(val);
 		
 	}
