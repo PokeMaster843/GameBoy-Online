@@ -5873,12 +5873,14 @@ GameBoyCore.prototype.channel4UpdateCache = function () {
 }
 GameBoyCore.prototype.run = function () {
 	//The preprocessing before the actual iteration loop:
-	var addr = parseInt(document.getElementById("adr0").innerHTML, 16);
-	for(var i = 0; i < 64; i++) {
+	var addr = parseInt(document.getElementById("addr").innerHTML, 16);
+	if(addr > 0) {
+		for(var i = 0; i < 64; i++) {
 
-		var nAddr = addr + i;
-		document.getElementById("v" + nAddr.toString(16)).innerHTML = nAddr <= 0xFF00 ? gameboy.memoryRead(addr).toString(16) : gameboy.memoryHighRead(addr).toString(16);
+			var nAddr = addr + i;
+			document.getElementById("v" + nAddr.toString(16)).innerHTML = nAddr <= 0xFF00 ? gameboy.memoryRead(addr).toString(16) : gameboy.memoryHighRead(addr).toString(16);
 
+		}
 	}
 	if ((this.stopEmulator & 2) == 0) {
 		if ((this.stopEmulator & 1) == 1) {
