@@ -12,6 +12,7 @@ var keyZones = [
 	["select", [16]],
 	["start", [13]]
 ];
+var ramInterval = null;
 function windowingInitialize() {
 	cout("windowingInitialize() called.", 0);
 	windowStacks[0] = windowCreate("GameBoy", true);
@@ -687,9 +688,33 @@ function restartByKeyPress() {
 function newRAMWatch() {
 	if(GameBoyEmulatorInitialized()) {
 		
-		var addr = parseInt(prompt("Enter address (hex): "), 16);
-		setInterval(function() {
-			document.getElementById("v00").innerHTML = gameboy.memoryRead(addr).toString(16);
+		if(ramInterval !== null) { clearInterval(ramInterval); ramInterval = null; }
+		var addr = parseInt(prompt("Enter address (hex): "), 16) || 0;
+		document.getElementById("adr0").innerHTML = (addr + 0x00).toString(16);
+		document.getElementById("adr1").innerHTML = (addr + 0x08).toString(16);
+		document.getElementById("adr2").innerHTML = (addr + 0x10).toString(16);
+		document.getElementById("adr3").innerHTML = (addr + 0x18).toString(16);
+		document.getElementById("adr4").innerHTML = (addr + 0x20).toString(16);
+		document.getElementById("adr5").innerHTML = (addr + 0x28).toString(16);
+		document.getElementById("adr6").innerHTML = (addr + 0x30).toString(16);
+		document.getElementById("adr7").innerHTML = (addr + 0x38).toString(16);
+		ramInterval = setInterval(function() {
+			document.getElementById("v00").innerHTML = gameboy.memoryRead(addr + 0x00).toString(16);
+			document.getElementById("v01").innerHTML = gameboy.memoryRead(addr + 0x01).toString(16);
+			document.getElementById("v02").innerHTML = gameboy.memoryRead(addr + 0x02).toString(16);
+			document.getElementById("v03").innerHTML = gameboy.memoryRead(addr + 0x03).toString(16);
+			document.getElementById("v04").innerHTML = gameboy.memoryRead(addr + 0x04).toString(16);
+			document.getElementById("v05").innerHTML = gameboy.memoryRead(addr + 0x05).toString(16);
+			document.getElementById("v06").innerHTML = gameboy.memoryRead(addr + 0x06).toString(16);
+			document.getElementById("v07").innerHTML = gameboy.memoryRead(addr + 0x07).toString(16);
+			document.getElementById("v08").innerHTML = gameboy.memoryRead(addr + 0x00).toString(16);
+			document.getElementById("v09").innerHTML = gameboy.memoryRead(addr + 0x08).toString(16);
+			document.getElementById("v0a").innerHTML = gameboy.memoryRead(addr + 0x0a).toString(16);
+			document.getElementById("v0b").innerHTML = gameboy.memoryRead(addr + 0x0b).toString(16);
+			document.getElementById("v0c").innerHTML = gameboy.memoryRead(addr + 0x0c).toString(16);
+			document.getElementById("v0d").innerHTML = gameboy.memoryRead(addr + 0x0d).toString(16);
+			document.getElementById("v0e").innerHTML = gameboy.memoryRead(addr + 0x0e).toString(16);
+			document.getElementById("v0f").innerHTML = gameboy.memoryRead(addr + 0x0f).toString(16);
 		}, 1000, false);
 		document.getElementById("addr").innerHTML = addr;
 		/*document.getElementById("adr0").innerHTML = (addr + 0x00).toString(16);
