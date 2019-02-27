@@ -698,23 +698,43 @@ function newRAMWatch() {
 		document.getElementById("adr5").innerHTML = (addr + 0x28).toString(16);
 		document.getElementById("adr6").innerHTML = (addr + 0x30).toString(16);
 		document.getElementById("adr7").innerHTML = (addr + 0x38).toString(16);
+		var v = [document.getElementById("v00"),
+		    	 document.getElementById("v01"),
+			 document.getElementById("v02"),
+			 document.getElementById("v03"),
+			 document.getElementById("v04"),
+			 document.getElementById("v05"),
+			 document.getElementById("v06"),
+			 document.getElementById("v07"),
+			 document.getElementById("v08"),
+			 document.getElementById("v09"),
+			 document.getElementById("v0a"),
+			 document.getElementById("v0b"),
+			 document.getElementById("v0c"),
+			 document.getElementById("v0d"),
+			 document.getElementById("v0e"),
+			 document.getElementById("v0f"),
+			 document.getElementById("v10"),
+			 document.getElementById("v11"),
+			 document.getElementById("v12"),
+			 document.getElementById("v13"),
+			 document.getElementById("v14"),
+			 document.getElementById("v15"),
+			 document.getElementById("v16"),
+			 document.getElementById("v17"),
+			 document.getElementById("v18"),
+			 document.getElementById("v19"),
+			 document.getElementById("v1a"),
+			 document.getElementById("v1b"),
+			 document.getElementById("v1c"),
+			 document.getElementById("v1d"),
+			 document.getElementById("v1e"),
+			 document.getElementById("v1f")];
 		ramInterval = setInterval(function() {
-			document.getElementById("v00").innerHTML = gameboy.memoryRead(addr + 0x00).toString(16);
-			document.getElementById("v01").innerHTML = gameboy.memoryRead(addr + 0x01).toString(16);
-			document.getElementById("v02").innerHTML = gameboy.memoryRead(addr + 0x02).toString(16);
-			document.getElementById("v03").innerHTML = gameboy.memoryRead(addr + 0x03).toString(16);
-			document.getElementById("v04").innerHTML = gameboy.memoryRead(addr + 0x04).toString(16);
-			document.getElementById("v05").innerHTML = gameboy.memoryRead(addr + 0x05).toString(16);
-			document.getElementById("v06").innerHTML = gameboy.memoryRead(addr + 0x06).toString(16);
-			document.getElementById("v07").innerHTML = gameboy.memoryRead(addr + 0x07).toString(16);
-			document.getElementById("v08").innerHTML = gameboy.memoryRead(addr + 0x00).toString(16);
-			document.getElementById("v09").innerHTML = gameboy.memoryRead(addr + 0x08).toString(16);
-			document.getElementById("v0a").innerHTML = gameboy.memoryRead(addr + 0x0a).toString(16);
-			document.getElementById("v0b").innerHTML = gameboy.memoryRead(addr + 0x0b).toString(16);
-			document.getElementById("v0c").innerHTML = gameboy.memoryRead(addr + 0x0c).toString(16);
-			document.getElementById("v0d").innerHTML = gameboy.memoryRead(addr + 0x0d).toString(16);
-			document.getElementById("v0e").innerHTML = gameboy.memoryRead(addr + 0x0e).toString(16);
-			document.getElementById("v0f").innerHTML = gameboy.memoryRead(addr + 0x0f).toString(16);
+			for(var i = 0; i < v.length; i++) {
+				v[i].innerHTML = gameboy.memoryRead(addr + i).toString(16);
+				v[i].innerHTML = v[i].innerHTML.lenght == 2 ? v[i].innerHTML : "0" + v[i].innerHTML;
+			}
 		}, 1000, false);
 		document.getElementById("addr").innerHTML = addr;
 		/*document.getElementById("adr0").innerHTML = (addr + 0x00).toString(16);
