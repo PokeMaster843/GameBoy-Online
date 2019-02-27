@@ -688,9 +688,11 @@ function newRAMWatch() {
 	if(GameBoyEmulatorInitialized()) {
 		
 		var addr = parseInt(prompt("Enter address (hex): "), 16);
-		setInterval(function() { alert(gameboy.memoryRead(addr).toString(16)); }, 2000, false);
+		setInterval(function() {
+			document.getElementById("v00").innerHTML = gameboy.memoryRead(addr).toString(16);
+		}, 1000, false);
 		document.getElementById("addr").innerHTML = addr;
-		document.getElementById("adr0").innerHTML = (addr + 0x00).toString(16);
+		/*document.getElementById("adr0").innerHTML = (addr + 0x00).toString(16);
 		document.getElementById("adr1").innerHTML = (addr + 0x08).toString(16);
 		document.getElementById("adr2").innerHTML = (addr + 0x10).toString(16);
 		document.getElementById("adr3").innerHTML = (addr + 0x18).toString(16);
@@ -713,7 +715,7 @@ function newRAMWatch() {
 				document.getElementById("v" + (addr + i).toString(16)).innerHTML = nAddr <= 0xFF00 ? this.memoryRead(addr).toString(16) : this.memoryHighRead(addr).toString(16);
 
 			}
-		}
+		}*/
 		
 	}
 }
