@@ -733,7 +733,7 @@ function newRAMWatch() {
 		ramInterval = setInterval(function() {
 			for(var i = 0; i < v.length; i++) {
 				v[i].innerHTML = gameboy.memoryRead(addr + i).toString(16);
-				v[i].innerHTML = v[i].innerHTML.lenght == 2 ? v[i].innerHTML : "0" + v[i].innerHTML;
+				v[i].innerHTML = v[i].innerHTML.length >= 2 ? v[i].innerHTML : "0" + v[i].innerHTML;
 			}
 		}, 1000, false);
 		document.getElementById("addr").innerHTML = addr;
