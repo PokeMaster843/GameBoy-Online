@@ -796,3 +796,26 @@ function newRAMWatch() {
 		
 	}
 }
+function importTAS(evt) {
+	
+	var f = evt.target.files[0], tas;
+	var reader = new FileReader();
+	reader.onload = function(e) {
+		
+		tas = e.target.result.split("\n");
+		for(var i = 0; i < tas.length; i++) {
+			tas[i] = parseInt(tas[i], 2);
+		}
+		
+	};
+	
+	reader.readAsText(f);
+	var count = 0;
+	setInterval(function() {
+		
+		var fr = tas[count++];
+		
+		
+	}, 1000 / 60);
+	
+}
