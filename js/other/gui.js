@@ -817,9 +817,8 @@ function importTAS(evt) {
 	var count = 0, prev = [0,0,0,0,0,0,0,0];
 	var currentTAS = setInterval(function() {
 		
-		if(count > tas.length) { clearInterval(currentTAS); }
 		var fr = bits(tas[count++]);
-		if(fr[0]) { if(!prev[0]) { GameboyKeyDown("a"); } }	 // A
+		if(fr[0]) { if(!prev[0]) { alert("trying"); GameboyKeyDown("a"); } }	 // A
 		else { GameboyKeyUp("a"); }
 		if(fr[1]) { if(!prev[1]) { GameboyKeyDown("b"); } }	 // B
 		else { GameboyKeyUp("b"); }
@@ -836,6 +835,7 @@ function importTAS(evt) {
 		if(fr[7]) { if(!prev[7]) { GameboyKeyDown("right"); } }	 // Right
 		else { GameboyKeyUp("right"); }
 		
+		if(count > tas.length) { clearInterval(currentTAS); }
 		prev = fr;
 		
 	}, 1000 / 60);
