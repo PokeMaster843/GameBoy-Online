@@ -1,4 +1,4 @@
-var inFullscreen = false;
+6var inFullscreen = false;
 var mainCanvas = null;
 var fullscreenCanvas = null;
 var showAsMinimal = false;
@@ -94,6 +94,7 @@ function registerGUIEvents() {
 			keyUp(event);
 		}
 	});
+	addEvent("change", document.getElementById("tasIn"), importTAS);
 	addEvent("MozOrientation", window, GameBoyGyroSignalHandler);
 	addEvent("deviceorientation", window, GameBoyGyroSignalHandler);
 	new popupMenu(document.getElementById("GameBoy_file_menu"), document.getElementById("GameBoy_file_popup"));
@@ -796,6 +797,9 @@ function newRAMWatch() {
 		
 	}
 }
+function bits(b) {
+	return [b & 0x80, b & 0x40, b & 0x20, b & 0x10, b & 0x08, b & 0x04, b & 0x02, b & 0x01];
+}
 function importTAS(evt) {
 	
 	var f = evt.target.files[0], tas;
@@ -810,11 +814,29 @@ function importTAS(evt) {
 	};
 	
 	reader.readAsText(f);
-	var count = 0;
-	setInterval(function() {
+	var count = 0, prev = [0,0,0,0,0,0,0,0];
+	var currentTAS = setInterval(function() {
 		
-		var fr = tas[count++];
+		if(count > tas.length) { clearInterval(currentTAS); }
+		var fr = bits(tas[count++]);
+		if(fr[0]) { if(!prev[0]) { GameboyKeyDown("a"); } }	 // A
+		else { GameboyKeyUp("a"); }
+		if(fr[1]) { if(!prev[1]) { GameboyKeyDown("b"); } }	 // B
+		else { GameboyKeyUp("b"); }
+		if(fr[2]) { if(!prev[2]) { GameboyKeyDown("start"); } }	 // Start
+		else { GameboyKeyUp("start"); }
+		if(fr[3]) { if(!prev[3]) { GameboyKeyDown("select"); } } // Select
+		else { GameboyKeyUp("select"); }
+		if(fr[4]) { if(!prev[4]) { GameboyKeyDown("up"); } }	 // Up
+		else { GameboyKeyUp("up"); }
+		if(fr[5]) { if(!prev[5]) { GameboyKeyDown("down"); } }	 // Down
+		else { GameboyKeyUp("down"); }
+		if(fr[6]) { if(!prev[6]) { GameboyKeyDown("left"); } }	 // Left
+		else { GameboyKeyUp("left"); }
+		if(fr[7]) { if(!prev[7]) { GameboyKeyDown("right"); } }	 // Right
+		else { GameboyKeyUp("right"); }
 		
+		prev = fr;
 		
 	}, 1000 / 60);
 	
