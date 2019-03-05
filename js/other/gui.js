@@ -1,4 +1,4 @@
-6var inFullscreen = false;
+var inFullscreen = false;
 var mainCanvas = null;
 var fullscreenCanvas = null;
 var showAsMinimal = false;
