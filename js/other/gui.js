@@ -818,22 +818,22 @@ function importTAS(evt) {
 	var currentTAS = setInterval(function() {
 		
 		var fr = bits(tas[count++]);
-		if(fr[0]) { if(!prev[0]) { alert("trying"); GameboyKeyDown("a"); } }	 // A
-		else { GameboyKeyUp("a"); }
-		if(fr[1]) { if(!prev[1]) { GameboyKeyDown("b"); } }	 // B
-		else { GameboyKeyUp("b"); }
-		if(fr[2]) { if(!prev[2]) { GameboyKeyDown("start"); } }	 // Start
-		else { GameboyKeyUp("start"); }
-		if(fr[3]) { if(!prev[3]) { GameboyKeyDown("select"); } } // Select
-		else { GameboyKeyUp("select"); }
-		if(fr[4]) { if(!prev[4]) { GameboyKeyDown("up"); } }	 // Up
-		else { GameboyKeyUp("up"); }
-		if(fr[5]) { if(!prev[5]) { GameboyKeyDown("down"); } }	 // Down
-		else { GameboyKeyUp("down"); }
-		if(fr[6]) { if(!prev[6]) { GameboyKeyDown("left"); } }	 // Left
-		else { GameboyKeyUp("left"); }
-		if(fr[7]) { if(!prev[7]) { GameboyKeyDown("right"); } }	 // Right
-		else { GameboyKeyUp("right"); }
+		if(fr[0]) { if(!prev[0]) { GameBoyKeyDown("a"); } }	 // A
+		else { GameBoyKeyUp("a"); }
+		if(fr[1]) { if(!prev[1]) { GameBoyKeyDown("b"); } }	 // B
+		else { GameBoyKeyUp("b"); }
+		if(fr[2]) { if(!prev[2]) { GameBoyKeyDown("start"); } }	 // Start
+		else { GameBoyKeyUp("start"); }
+		if(fr[3]) { if(!prev[3]) { GameBoyKeyDown("select"); } } // Select
+		else { GameBoyKeyUp("select"); }
+		if(fr[4]) { if(!prev[4]) { GameBoyKeyDown("up"); } }	 // Up
+		else { GameBoyKeyUp("up"); }
+		if(fr[5]) { if(!prev[5]) { GameBoyKeyDown("down"); } }	 // Down
+		else { GameBoyKeyUp("down"); }
+		if(fr[6]) { if(!prev[6]) { GameBoyKeyDown("left"); } }	 // Left
+		else { GameBoyKeyUp("left"); }
+		if(fr[7]) { if(!prev[7]) { GameBoyKeyDown("right"); } }	 // Right
+		else { GameBoyKeyUp("right"); }
 		
 		if(count > tas.length) { clearInterval(currentTAS); }
 		prev = fr;
