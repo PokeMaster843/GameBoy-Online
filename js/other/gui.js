@@ -815,7 +815,7 @@ function importTAS(evt) {
 	var currentTAS = setInterval(function() {
 		
 		var fr = bits(tas[count++]);
-		if(fr[0]) { if(!prev[0]) { gameboy.JoyPadEvent(4, true); alert("reached"); } }	 // A
+		if(fr[0]) { if(!prev[0]) { gameboy.JoyPadEvent(4, true); alert(tas[count - 1]); } }	 // A
 		else { gameboy.JoyPadEvent(4, false); }
 		if(fr[1]) { if(!prev[1]) { gameboy.JoyPadEvent(5, true); } }	 // B
 		else { gameboy.JoyPadEvent(5, false); }
