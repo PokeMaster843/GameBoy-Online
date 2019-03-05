@@ -811,10 +811,7 @@ function importTAS(evt) {
 			tas[i] = parseInt(tas[i], 2);
 		}
 		
-	};
-	
-	reader.readAsText(f);
-	var count = 0, prev = [0,0,0,0,0,0,0,0];
+		var count = 0, prev = [0,0,0,0,0,0,0,0];
 	var currentTAS = setInterval(function() {
 		
 		var fr = bits(tas[count++]);
@@ -839,5 +836,9 @@ function importTAS(evt) {
 		prev = fr;
 		
 	}, 1000 / 60);
+		
+	};
+	
+	reader.readAsText(f);
 	
 }
