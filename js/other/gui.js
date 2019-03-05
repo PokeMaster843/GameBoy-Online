@@ -818,7 +818,7 @@ function importTAS(evt) {
 	var currentTAS = setInterval(function() {
 		
 		var fr = bits(tas[count++]);
-		if(fr[0]) { if(!prev[0]) { GameBoyKeyDown("a"); } }	 // A
+		if(fr[0]) { if(!prev[0]) { GameBoyKeyDown("a"); alert("reached"); } }	 // A
 		else { GameBoyKeyUp("a"); }
 		if(fr[1]) { if(!prev[1]) { GameBoyKeyDown("b"); } }	 // B
 		else { GameBoyKeyUp("b"); }
