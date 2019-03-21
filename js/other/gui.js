@@ -834,7 +834,7 @@ function importTAS(evt) {
 	var currentTAS = setInterval(function() {
 		
 		var fr = bits(tas[count++]);
-		
+		/*
 		if(fr[0] && !prev[0]) { gameboy.JoyPadEvent(4, true); }
 		else if(prev[0]) { gameboy.JoyPadEvent(4, false); }
 		if(fr[1] && !prev[1]) { gameboy.JoyPadEvent(5, true); }
@@ -851,6 +851,23 @@ function importTAS(evt) {
 		else if(prev[6]) { gameboy.JoyPadEvent(1, false); }
 		if(fr[7] && !prev[7]) { gameboy.JoyPadEvent(0, true); }
 		else if(prev[7]) { gameboy.JoyPadEvent(0, false); }
+		*/
+		if(fr[0] && !prev[0]) { GameBoyKeyDown("a"); }
+		else if(prev[0]) { GameBoyKeyUp("a"); }
+		if(fr[1] && !prev[1]) { GameBoyKeyDown("b"); }
+		else if(prev[1]) { GameBoyKeyUp("b"); }
+		if(fr[2] && !prev[2]) { GameBoyKeyDown("start"); }
+		else if(prev[2]) { GameBoyKeyUp("start"); }
+		if(fr[3] && !prev[3]) { GameBoyKeyDown("select"); }
+		else if(prev[3]) { GameBoyKeyUp("select"); }
+		if(fr[4] && !prev[4]) { GameBoyKeyDown("up"); }
+		else if(prev[4]) { GameBoyKeyUp("up"); }
+		if(fr[5] && !prev[5]) { GameBoyKeyDown("down"); }
+		else if(prev[5]) { GameBoyKeyUp("down"); }
+		if(fr[6] && !prev[6]) { GameBoyKeyDown("left"); }
+		else if(prev[6]) { GameBoyKeyUp("left"); }
+		if(fr[7] && !prev[7]) { GameBoyKeyDown("right"); }
+		else if(prev[7]) { GameBoyKeyUp("right"); }
 		
 		if(count > tas.length) { clearInterval(currentTAS); }
 		prev = fr;
