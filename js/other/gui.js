@@ -13,14 +13,14 @@ var keyZones = [
 	["start", [13]]
 ];
 var bAlerts = {
-	right: document.getElementById("bR"),
-	left: document.getElementById("bL"),
-	up: document.getElementById("bU"),
-	down: document.getElementById("bD"),
+	right: document.getElementById("bRight"),
+	left: document.getElementById("bLeft"),
+	up: document.getElementById("bUp"),
+	down: document.getElementById("bDown"),
 	a: document.getElementById("bA"),
 	b: document.getElementById("bB"),
-	select: document.getElementById("bSe"),
-	start: document.getElementById("bSt")
+	select: document.getElementById("bSelect"),
+	start: document.getElementById("bStart")
 };
 var ramInterval = null;
 function windowingInitialize() {
