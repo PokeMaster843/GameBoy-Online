@@ -12,6 +12,16 @@ var keyZones = [
 	["select", [16]],
 	["start", [13]]
 ];
+var bAlerts = {
+	right: document.getElementById("bR"),
+	left: document.getElementById("bL"),
+	up: document.getElementById("bU"),
+	down: document.getElementById("bD"),
+	a: document.getElementById("bA"),
+	b: document.getElementById("bB"),
+	select: document.getElementById("bSe"),
+	start: document.getElementById("bSt")
+};
 var ramInterval = null;
 function windowingInitialize() {
 	cout("windowingInitialize() called.", 0);
@@ -347,6 +357,7 @@ function keyDown(event) {
 		for (var index = 0; index < keysTotal; ++index) {
 			if (keysMapped[index] == keyCode) {
 				GameBoyKeyDown(keyCheck[0]);
+				bAlerts[keyCheck[0]].innerHTML = "1";
 				try {
 					event.preventDefault();
 				}
@@ -365,6 +376,7 @@ function keyUp(event) {
 		for (var index = 0; index < keysTotal; ++index) {
 			if (keysMapped[index] == keyCode) {
 				GameBoyKeyUp(keyCheck[0]);
+				bAlerts[keyCheck[0]].innerHTML = "0";
 				try {
 					event.preventDefault();
 				}
