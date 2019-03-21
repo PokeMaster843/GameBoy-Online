@@ -12,16 +12,15 @@ var keyZones = [
 	["select", [16]],
 	["start", [13]]
 ];
-var bAlerts = {
-	right: document.getElementById("bRight"),
-	left: document.getElementById("bLeft"),
-	up: document.getElementById("bUp"),
-	down: document.getElementById("bDown"),
-	a: document.getElementById("bA"),
-	b: document.getElementById("bB"),
-	select: document.getElementById("bSelect"),
-	start: document.getElementById("bStart")
-};
+var convArray = ["right", "left", "up", "down", "a", "b", "select", "start"];
+var bAlerts = [ document.getElementById("bRight"),
+		document.getElementById("bLeft"),
+		document.getElementById("bUp"),
+		document.getElementById("bDown"),
+		document.getElementById("bA"),
+		document.getElementById("bB"),
+		document.getElementById("bSelect"),
+		document.getElementById("bStart")];
 var ramInterval = null;
 function windowingInitialize() {
 	cout("windowingInitialize() called.", 0);
@@ -356,7 +355,7 @@ function keyDown(event) {
 		var keysTotal = keysMapped.length;
 		for (var index = 0; index < keysTotal; ++index) {
 			if (keysMapped[index] == keyCode) {
-				bAlerts[keyCheck[0]].innerHTML = "p1";
+				bAlerts[convArray.indexOf(keyCheck[0])].innerHTML = "p1";
 				GameBoyKeyDown(keyCheck[0]);
 				try {
 					event.preventDefault();
@@ -375,7 +374,7 @@ function keyUp(event) {
 		var keysTotal = keysMapped.length;
 		for (var index = 0; index < keysTotal; ++index) {
 			if (keysMapped[index] == keyCode) {
-				bAlerts[keyCheck[0]].innerHTML = "p0";
+				bAlerts[convArray.indexOf(keyCheck[0])].innerHTML = "p0";
 				GameBoyKeyUp(keyCheck[0]);
 				try {
 					event.preventDefault();
