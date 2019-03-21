@@ -356,8 +356,8 @@ function keyDown(event) {
 		var keysTotal = keysMapped.length;
 		for (var index = 0; index < keysTotal; ++index) {
 			if (keysMapped[index] == keyCode) {
-				GameBoyKeyDown(keyCheck[0]); alert(keyCheck[0]);
-				bAlerts[keyCheck[0]].innerHTML = "1";
+				GameBoyKeyDown(keyCheck[0]);
+				bAlerts[keyCheck[0]].innerHTML = "p1";
 				try {
 					event.preventDefault();
 				}
@@ -375,8 +375,8 @@ function keyUp(event) {
 		var keysTotal = keysMapped.length;
 		for (var index = 0; index < keysTotal; ++index) {
 			if (keysMapped[index] == keyCode) {
-				GameBoyKeyUp(keyCheck[0]); alert(keyCheck[0]);
-				bAlerts[keyCheck[0]].innerHTML = "0";
+				GameBoyKeyUp(keyCheck[0]);
+				bAlerts[keyCheck[0]].innerHTML = "p0";
 				try {
 					event.preventDefault();
 				}
