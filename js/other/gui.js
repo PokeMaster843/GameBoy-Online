@@ -812,36 +812,34 @@ function importTAS(evt) {
 		}
 		
 		var count = 0, prev = [0,0,0,0,0,0,0,0];
+		
+	};
+	
+	reader.readAsText(f);
 	var currentTAS = setInterval(function() {
 		
 		var fr = bits(tas[count++]); alert(fr); clearInterval(currentTAS);
-		if(fr[0]) { if(!prev[0]) { gameboy.JoyPadEvent(4, true); alert(tas[count - 1]); } }	 // A
-		else { if(prev[0]) { gameboy.JoyPadEvent(4, false); } }
-		if(fr[1]) { if(!prev[1]) { gameboy.JoyPadEvent(5, true); } }	 // B
-		else { if(prev[1]) { gameboy.JoyPadEvent(5, false); } }
-		if(fr[2]) { if(!prev[2]) { gameboy.JoyPadEvent(7, true); } }	 // Start
-		else { if(prev[2]) { gameboy.JoyPadEvent(7, false); } }
-		if(fr[3]) { if(!prev[3]) { gameboy.JoyPadEvent(6, true); } } // Select
-		else { if(prev[3]) { gameboy.JoyPadEvent(6, false); } }
-		if(fr[4]) { if(!prev[4]) { gameboy.JoyPadEvent(2, true); } }	 // Up
-		else { if(prev[4]) { gameboy.JoyPadEvent(2, false); } }
-		if(fr[5]) { if(!prev[5]) { gameboy.JoyPadEvent(3, true); } }	 // Down
-		else { if(prev[5]) { gameboy.JoyPadEvent(3, false); } }
-		if(fr[6]) { if(!prev[6]) { gameboy.JoyPadEvent(1, true); } }	 // Left
-		else { if(prev[6]) { gameboy.JoyPadEvent(1, false); } }
-		if(fr[7]) { if(!prev[7]) { gameboy.JoyPadEvent(0, true); } }	 // Right
-		else { if(prev[7]) { gameboy.JoyPadEvent(0, false); } }
 		
-		if(fr[0] && !prev[0]) {  }
-		else if(prev[0]) {  }
+		if(fr[0] && !prev[0]) { gameboy.JoyPadEvent(4, true); }
+		else if(prev[0]) { gameboy.JoyPadEvent(4, false); }
+		if(fr[1] && !prev[1]) { gameboy.JoyPadEvent(5, true); }
+		else if(prev[1]) { gameboy.JoyPadEvent(5, false); }
+		if(fr[2] && !prev[2]) { gameboy.JoyPadEvent(7, true); }
+		else if(prev[2]) { gameboy.JoyPadEvent(7, false); }
+		if(fr[3] && !prev[3]) { gameboy.JoyPadEvent(6, true); }
+		else if(prev[3]) { gameboy.JoyPadEvent(6, false); }
+		if(fr[4] && !prev[4]) { gameboy.JoyPadEvent(2, true); }
+		else if(prev[4]) { gameboy.JoyPadEvent(2, false); }
+		if(fr[5] && !prev[5]) { gameboy.JoyPadEvent(3, true); }
+		else if(prev[5]) { gameboy.JoyPadEvent(3, false); }
+		if(fr[6] && !prev[6]) { gameboy.JoyPadEvent(1, true); }
+		else if(prev[6]) { gameboy.JoyPadEvent(1, false); }
+		if(fr[7] && !prev[7]) { gameboy.JoyPadEvent(0, true); }
+		else if(prev[7]) { gameboy.JoyPadEvent(0, false); }
 		
 		if(count > tas.length) { clearInterval(currentTAS); }
 		prev = fr;
 		
 	}, 1000 / 60);
-		
-	};
-	
-	reader.readAsText(f);
 	
 }
