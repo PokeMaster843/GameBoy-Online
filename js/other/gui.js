@@ -814,7 +814,7 @@ function importTAS(evt) {
 		var count = 0, prev = [0,0,0,0,0,0,0,0];
 	var currentTAS = setInterval(function() {
 		
-		var fr = bits(tas[count++]);
+		var fr = bits(tas[count++]); alert(fr); clearInterval(currentTAS);
 		if(fr[0]) { if(!prev[0]) { gameboy.JoyPadEvent(4, true); alert(tas[count - 1]); } }	 // A
 		else { if(prev[0]) { gameboy.JoyPadEvent(4, false); } }
 		if(fr[1]) { if(!prev[1]) { gameboy.JoyPadEvent(5, true); } }	 // B
@@ -831,6 +831,9 @@ function importTAS(evt) {
 		else { if(prev[6]) { gameboy.JoyPadEvent(1, false); } }
 		if(fr[7]) { if(!prev[7]) { gameboy.JoyPadEvent(0, true); } }	 // Right
 		else { if(prev[7]) { gameboy.JoyPadEvent(0, false); } }
+		
+		if(fr[0] && !prev[0]) {  }
+		else if(prev[0]) {  }
 		
 		if(count > tas.length) { clearInterval(currentTAS); }
 		prev = fr;
