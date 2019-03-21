@@ -806,19 +806,22 @@ function importTAS(evt) {
 	var reader = new FileReader();
 	reader.onload = function(e) {
 		
-		tas = e.target.result.split("\n");
-		for(var i = 0; i < tas.length; i++) {
-			tas[i] = parseInt(tas[i], 2);
+		var str = e.target.result, i = 0, last = 0, cont = true;
+		while(cont) {
+			
+			tas[i++] = str.substr(last, 8);
+			last += 9;
+			if(last >= str.length) { cont = false; }
+			
 		}
-		
-		var count = 0, prev = [0,0,0,0,0,0,0,0];
 		
 	};
 	
 	reader.readAsText(f);
+	var count = 0, prev = [0,0,0,0,0,0,0,0];
 	var currentTAS = setInterval(function() {
 		
-		var fr = bits(tas[count++]); alert(fr); clearInterval(currentTAS);
+		var fr = bits(tas[count++]);
 		
 		if(fr[0] && !prev[0]) { gameboy.JoyPadEvent(4, true); }
 		else if(prev[0]) { gameboy.JoyPadEvent(4, false); }
