@@ -79,6 +79,10 @@ function registerGUIEvents() {
 			newRAMWatch();
 		}
 		
+		if(event.keyCode == 189) {
+			setMemoryValue();
+		}
+		
 		else {
 			keyDown(event);
 		}
@@ -794,6 +798,16 @@ function newRAMWatch() {
 
 			}
 		}*/
+		
+	}
+}
+function setMemoryValue() {
+	if(GameBoyEmulatorInitialized()) {
+		
+		var addr = parseInt(prompt("Enter address (hex): "), 16) || 0;
+		var val = parseInt(prompt("Enter value (hex): ", 16) || 0;
+		
+		gameboy.memoryWrite(addr, val);
 		
 	}
 }
