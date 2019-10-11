@@ -80,7 +80,7 @@ function registerGUIEvents() {
 		}
 		
 		if(event.keyCode == 189) {
-			setMemoryValue();
+			manualMemoryValueEdit();
 		}
 		
 		else {
@@ -801,7 +801,7 @@ function newRAMWatch() {
 		
 	}
 }
-function setMemoryValue() {
+function manualMemoryValueEdit() {
 	if(GameBoyEmulatorInitialized()) {
 		var writeAddr = parseInt(prompt("Enter address (hex): "), 16);
 		var writeVal = parseInt(prompt("Enter value (hex): "), 16);
