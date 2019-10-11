@@ -803,8 +803,8 @@ function newRAMWatch() {
 }
 function setMemoryValue() {
 	if(GameBoyEmulatorInitialized()) {
-		var writeAddr = parseInt(prompt("Enter address (hex): "), 16) || 0;
-		var writeVal = parseInt(prompt("Enter value (hex): ", 16) || 0;
+		var writeAddr = parseInt(prompt("Enter address (hex): "), 16);
+		var writeVal = parseInt(prompt("Enter value (hex): "), 16);
 		setTimeout(function() { gameboy.memoryWrite(writeAddr, writeVal); }, 1000);
 	}
 }
